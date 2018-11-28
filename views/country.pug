@@ -1,0 +1,28 @@
+h1 #{country.name}
+div continent: #{country.continent}
+div region:  #{country.region}
+div surfaceArea: #{country.surfaceArea}
+div indepYear: #{country.indepYear}
+div population:  #{country.population}
+div lifeExpectancy: #{country.lifeExpectancy}
+div GNP: #{country.GNP}
+div GNPOld: #{country.GNPOld}
+div localName: #{country.localName}
+div governmentForm: #{country.governmentForm}
+div headOfState: #{country.headOfState}
+div capital:
+    a(href=`/cities/${capital.id}.html`) #{capital.name}
+
+div code2: #{country.code2}
+hr
+div cities:
+    br
+    each city in country.cities
+        a(href=`/cities/${city.id}.html`) #{city.name}  #{city.population}
+        br
+hrs
+div languages:
+    br
+    each lng in country.countryLanguages
+        div #{lng.language}: #{lng.percentage}(#{Math.ceil(lng.percentage * country.population/100)})
+          span #{lng.isOfficial === 'T' ? 'Official Language' : 'Not Official'}

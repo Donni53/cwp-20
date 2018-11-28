@@ -1,0 +1,17 @@
+h1 #{city.name}
+div District: #{city.district}
+div Population: #{city.population}
+div Country: #{city.country.name}
+hr
+div Country Info:
+span Name: #{city.country.name}
+    br
+span Continent: #{city.country.continent}
+    br
+    |Capital:
+a(href=`/cities/${capital.dataValues.id}.html`) #{capital.dataValues.name}
+    br
+|Official languages:
+br
+each lng in city.country.countryLanguages
+    div --#{lng.language}

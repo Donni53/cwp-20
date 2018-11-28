@@ -1,0 +1,10 @@
+h1 Countries #{25 * (pageNumber - 1) + 1} - #{25 * pageNumber}
+hr
+- var count = 25 * (pageNumber - 1)
+each country in countries
+    .array_item_block(id=country.dataValues.code)
+        a(href=`/countries/${country.dataValues.code}.html`) #{country.dataValues.name} #{country.dataValues.continent}
+    br
+hr
+- for (var i=1; i <= pageCount; i++)
+    a(href=`/countries/?page=${i}`)= i + ' '
